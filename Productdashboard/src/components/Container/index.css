@@ -1,0 +1,38 @@
+.wrapper{
+    background-color: rgb(24, 22, 22);
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+
+    header {
+        height: 80px;
+        background-color: #e54d15;
+        h1{
+            color: #f4e7e7;
+            padding: 15px 25px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    }
+
+    .main-wrap {
+        display: flex;
+        
+        .sidebar {
+            flex-grow: 1;
+            background-color: #101010;
+            padding: 25px;
+        }
+    
+        .main {
+            flex-basis: 80%;
+            background-color: #030303;
+            padding: 25px 20px;
+        }
+    }
+    footer {
+        height: 25px;
+        background-color: #fdb364;
+    }
+}

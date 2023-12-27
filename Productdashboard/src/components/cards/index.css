@@ -1,0 +1,11 @@
+.card {
+    width: 45%;
+    padding: 20px;
+
+    .desc{
+    width: 90%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    overflow:hidden;
+    }
+}

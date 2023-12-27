@@ -1,0 +1,14 @@
+* {
+    color: #FEFEFE;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.image {
+    width: 400px;
+    height: 250px;
+}
