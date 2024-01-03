@@ -1,0 +1,17 @@
+.detail {
+    height: 100vh;
+}
+
+.action {
+    display: flex;
+    gap: 1rem;
+}
+
+.image {
+    width: 700px;
+    height: 450px;
+}
+
+p {
+    font-size: 20px;
+}

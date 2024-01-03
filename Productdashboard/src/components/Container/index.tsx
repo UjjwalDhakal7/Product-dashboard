@@ -1,26 +1,41 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from 'react';
 import './index.css';
-import Sidebar from "#components/Sidebar";
+import Sidebar from '#components/Sidebar';
+import Button from '#components/Button';
+import ModalComponent from '#components/Modal';
 
 interface ContainerProps {
-    children: ReactNode;
+  children: ReactNode;
 }
 
-const Container = ({ children }: ContainerProps) => {
-    return (
-        <div className="wrapper">
-            <div className="container">
-                <header><h1>Dashboard</h1></header>
-                <div className="main-wrap">
-                    <div className="sidebar"><Sidebar /></div>
-                    <div className="main">
-                        {children}
-                    </div>
-                </div>
-                {/* <footer></footer> */}
+const ContainerComponent = ({ children }: ContainerProps) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  return (
+    <div className="wrapper">
+      <div className="container">
+        <header>
+          <h1>Dashboard</h1>
+          <Button onClick={handleOpenModal} classname='button'>Add Product</Button>
+        </header>
+        <div className="main-wrap">
+          <div className="sidebar"><Sidebar /></div>
+          <div className="main">
+            <ModalComponent isOpen={showModal} onRequestClose={handleCloseModal} />
+            {children}
+          </div>
         </div>
-        </div>
-    );
+      </div>
+    </div>
+  );
 };
 
-export default Container;
+export default ContainerComponent;

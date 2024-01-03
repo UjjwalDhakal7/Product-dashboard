@@ -1,30 +1,56 @@
+import { useNavigate } from 'react-router-dom';
+import Button from '#components/Button';
+import { ProductType } from '#views/Products';
 import './index.css';
 
-interface CardProps {
-    title: string;
-    description: string;
-    rating: number;
-    price: number;
-    stock: number;
-    brand: string;
-    category: string;
-    thumbnail?: string;
+export interface CardProps extends ProductType {
+  onClick: () => void;
+  onEdit: () => void;
+  onDelete: () => void; 
 }
 
 const Card = ({
-    title, description, rating, price, stock, brand, category, thumbnail}: CardProps) => {
-    return (
-        <div className="card-wrap">
-            <div className="card-img">{thumbnail ? <img src={thumbnail} /> : 'Image'}</div>
-            <div className="title">{title}</div>
-            <div className="description">Description: {description}</div>
-            <div className="rating">Rating: {rating}</div>
-            <div className="price">Price: {price}</div>
-            <div className="stock">Stock: {stock}</div>
-            <div className="brand">Brand: {brand}</div>
-            <div className="category">Category: {category}</div>
-        </div>
-    );
+  id,
+  title,
+  price,
+  rating,
+  brand,
+  category,
+  thumbnail,
+  onEdit,
+  onDelete 
+}: CardProps) => {
+
+  const navigate = useNavigate();
+
+  const handleonClick = () => {
+    navigate(`/products/${id}`);
+  };
+  const handleEdit = () => {
+    onEdit(); 
+  };
+
+  const handleDelete = () => {
+    onDelete(); 
+  };
+
+  return (
+    <div className="card-main">
+      <div className="card-wrap" onClick={handleonClick}>
+        {thumbnail ? <img src={thumbnail} alt="Product" className='card-img'/> : 'Image'}
+        <h1><div className="title">{title}</div></h1>
+        <div className="rating">Rating: {rating}</div>
+        <h3><div className="price">Price: &#x20A8; {price}</div></h3>
+        <div className="brand">Brand: {brand}</div>
+        <div className="category">Category: {category}</div>
+      </div>
+      <div className="action">
+        <Button onClick={handleEdit} classname='btn'>Edit</Button>
+        <Button onClick={handleDelete} classname='btn'>Delete</Button>
+      </div>
+    </div>
+  );
 };
 
 export default Card;
+

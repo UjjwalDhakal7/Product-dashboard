@@ -1,11 +1,33 @@
-.card {
-    width: 45%;
-    padding: 20px;
+.card-main{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 50%;
+    
+    .card-wrap {
+        padding: 20px;
 
-    .desc{
-    width: 90%;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    overflow:hidden;
+        .card-img {
+            width: 500px;
+            height: 350px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .description{
+            width: 90%;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            overflow:hidden;
+            }
+    }
+
+    .action {
+        margin-left: 25px;
+
+        .btn{
+            padding: 10px 20px;
+        }
     }
 }
+
